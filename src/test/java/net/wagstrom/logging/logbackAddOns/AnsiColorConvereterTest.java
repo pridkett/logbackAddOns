@@ -1,5 +1,8 @@
 package net.wagstrom.logging.logbackAddOns;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -7,7 +10,7 @@ import junit.framework.TestSuite;
 /**
  * Unit test for simple App.
  */
-public class AppTest 
+public class AnsiColorConvereterTest 
     extends TestCase
 {
     /**
@@ -15,7 +18,7 @@ public class AppTest
      *
      * @param testName name of the test case
      */
-    public AppTest( String testName )
+    public AnsiColorConvereterTest( String testName )
     {
         super( testName );
     }
@@ -25,7 +28,7 @@ public class AppTest
      */
     public static Test suite()
     {
-        return new TestSuite( AppTest.class );
+        return new TestSuite( AnsiColorConvereterTest.class );
     }
 
     /**
@@ -34,5 +37,15 @@ public class AppTest
     public void testApp()
     {
         assertTrue( true );
+    }
+    
+    public void testLog() {
+    	Logger log = LoggerFactory.getLogger(this.getClass());
+    	log.error("test error message");
+    	log.warn("test warn message");
+    	log.info("test info message");
+    	log.debug("test debug message");
+    	log.trace("test trace message");
+    	assertTrue( true );
     }
 }
