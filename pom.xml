@@ -15,6 +15,7 @@
     <junit-version>3.8.1</junit-version>
     <logback-version>0.9.29</logback-version>
     <slf4j-version>1.6.1</slf4j-version>
+    <findbugs.version>2.4.0</findbugs.version>
   </properties>
 
   <repositories>
@@ -75,6 +76,18 @@
           <encoding>${project.build.sourceEncoding}</encoding>
         </configuration>
       </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>findbugs-maven-plugin</artifactId>
+        <version>${findbugs.version}</version>
+        <configuration>
+          <findbugsXmlOutput>true</findbugsXmlOutput>
+          <findbugsXmlWithMessages>true</findbugsXmlWithMessages>
+          <xmlOutput>true</xmlOutput>
+          <effort>Max</effort>
+          <threshold>Low</threshold>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
 
@@ -82,7 +95,7 @@
     <repository>
       <id>wagstrom-net-external_free</id>
       <name>Wagstrom.net External Projects</name>
-      <url>scpexe://patrick.wagstrom.net:7643/www/patrick/maven/external_free</url>
+      <url>scpexe://patrick.wagstrom.net/www/patrick/maven/external_free</url>
       <layout>default</layout>
       <uniqueVersion>false</uniqueVersion>
     </repository>
